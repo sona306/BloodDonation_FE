@@ -1,5 +1,7 @@
 import axios from 'axios'
 import React, { useState } from 'react'
+import Navbarlogin from './Navbarlogin'
+import { useNavigate } from 'react-router-dom'
 
 const HospitalSignup = () => {
     const[signup,setData]=useState(
@@ -31,15 +33,17 @@ const HospitalSignup = () => {
                 console.log(response.data)
                 if (response.data.status=="success") {
                     alert("New signin created")
+                    navigate("/hospitalsignin")
                 } else {
                     alert("error!")
                 }
             }
         ).catch()
     }
+    let navigate = useNavigate()
   return (
     <div>
-
+<Navbarlogin/>
 <div className="container">
                 <div className="row">
                     <div className="col col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 col-xxl-12">
@@ -52,9 +56,13 @@ const HospitalSignup = () => {
                                 <form action="" className="label_label">Hospital Name</form>
                                 <input type="text" className="form-control" placeholder='Enter hospital name' name='hospitalname' value={signup.hospitalname} onChange={inputHandler} />
                             </div>
-                            <div className="col col-12 col-sm-6 col-md-6 col-lg-6 col-xl-6 col-xxl-6"><br></br>
-                                <form action="" className="label_label">Registration Number</form>
-                                <input type="text" className="form-control" placeholder='Goverment registration id' name='registrationnumber' value={signup.registrationnumber} onChange={inputHandler} />
+                            <div className="col col-12 col-sm-6 col-md-6 col-lg-6 col-xl-6 col-xxl-6">
+                                <label htmlFor="" className="form-label">Blood Type avaliable</label>
+                                <select name="avaliablebloodtype" id="" className="form-control" value={signup.avaliablebloodtype} onChange={inputHandler}>
+                                    <option value="select">------------Select--------------</option>
+                                    <option value="Handling all blood types">Handling all blood types</option>
+                                    <option value="Not handling all blood types">Not handling all blood types</option>
+                                </select>
                             </div>
                             <div className="col col-12 col-sm-6 col-md-6 col-lg-6 col-xl-6 col-xxl-6">
                                 <label htmlFor="" className="form-label">Type Of Organization</label>
@@ -66,13 +74,9 @@ const HospitalSignup = () => {
                                     <option value="Other">Other</option>
                                 </select>
                             </div>
-                            <div className="col col-12 col-sm-6 col-md-6 col-lg-6 col-xl-6 col-xxl-6">
-                                <label htmlFor="" className="form-label">Blood Type avaliable</label>
-                                <select name="avaliablebloodtype" id="" className="form-control" value={signup.avaliablebloodtype} onChange={inputHandler}>
-                                    <option value="select">------------Select--------------</option>
-                                    <option value="Handling all blood types">Handling all blood types</option>
-                                    <option value="Not handling all blood types">Not handling all blood types</option>
-                                </select>
+                            <div className="col col-12 col-sm-6 col-md-6 col-lg-6 col-xl-6 col-xxl-6"><br></br>
+                                <form action="" className="label_label">Registration Number</form>
+                                <input type="text" className="form-control" placeholder='Goverment registration id' name='registrationnumber' value={signup.registrationnumber} onChange={inputHandler} />
                             </div>
                             <div className="col col-12 col-sm-6 col-md-6 col-lg-6 col-xl-6 col-xxl-6"><br></br>
                                 <form action="" className="label_label">Phone number</form>
@@ -98,6 +102,18 @@ const HospitalSignup = () => {
                                 <form action="" className="label_label">Operating Hours</form>
                                 <input type="text" className="form-control" placeholder='x am to x pm' name='operatinghours' value={signup.operatinghours} onChange={inputHandler} />
                             </div>
+                            <div className="col col-12 col-sm-6 col-md-6 col-lg-6 col-xl-6 col-xxl-6"><br></br>
+                                <form action="" className="label_label">Emergency contact number</form>
+                                <input type="text" className="form-control" placeholder='Enter emergency contact number' name='emergencycontactnumber' value={signup.emergencycontactnumber} onChange={inputHandler} />
+                            </div>
+                            <div className="col col-12 col-sm-6 col-md-6 col-lg-6 col-xl-6 col-xxl-6"><br></br>
+                                <form action="" className="label_label">Password</form>
+                                <input type="password" className="form-control" name='password' placeholder='Enter strong password' value={signup.password} onChange={inputHandler} />
+                            </div>
+                            <div className="col col-12 col-sm-6 col-md-6 col-lg-6 col-xl-6 col-xxl-6"><br></br>
+                                <form action="" className="label_label">Confirm Password</form>
+                                <input type="password" className="form-control" name='confirm' placeholder='Re enter password' value={signup.confirm} onChange={inputHandler} />
+                            </div>
                             <div className="col col-12 col-sm-6 col-md-6 col-lg-6 col-xl-6 col-xxl-6">
                                 <label htmlFor="" className="form-label">Emergency Blood Request Handling</label>
                                 <select name="emergencybloodrequesthandling" id="" className="form-control" value={signup.emergencybloodrequesthandling} onChange={inputHandler}>
@@ -105,18 +121,6 @@ const HospitalSignup = () => {
                                     <option value="Yes">Yes</option>
                                     <option value="No">No</option>
                                 </select>
-                            </div>
-                            <div className="col col-12 col-sm-6 col-md-6 col-lg-6 col-xl-6 col-xxl-6"><br></br>
-                                <form action="" className="label_label">Emergency contact number</form>
-                                <input type="text" className="form-control" placeholder='Enter emergency contact number' name='emergencycontactnumber' value={signup.emergencycontactnumber} onChange={inputHandler} />
-                            </div>
-                            <div className="col col-12 col-sm-6 col-md-6 col-lg-6 col-xl-6 col-xxl-6"><br></br>
-                                <form action="" className="label_label">Password</form>
-                                <input type="password" className="form-control" name='password' value={signup.password} onChange={inputHandler} />
-                            </div>
-                            <div className="col col-12 col-sm-6 col-md-6 col-lg-6 col-xl-6 col-xxl-6"><br></br>
-                                <form action="" className="label_label">Confirm Password</form>
-                                <input type="password" className="form-control" name='confirm' value={signup.confirm} onChange={inputHandler} />
                             </div>
                             <div className="col col-12 col-sm-6 col-md-6 col-lg-6 col-xl-6 col-xxl-6"><br></br>
                                 <button className="btn btn-success" onClick={readValue} >SignUp</button>
