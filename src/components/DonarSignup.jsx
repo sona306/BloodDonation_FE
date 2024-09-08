@@ -1,5 +1,7 @@
 import axios from 'axios'
 import React, { useState } from 'react'
+import Navbarlogin from './Navbarlogin'
+import { useNavigate } from 'react-router-dom'
 
 const DonarSignup = () => {
     const[signup,setData]=useState(
@@ -31,15 +33,17 @@ const DonarSignup = () => {
                 console.log(response.data)
                 if (response.data.status=="success") {
                     alert("New signin created")
+                    navigate("/donarsignin")
                 } else {
                     alert("error!")
                 }
             }
         ).catch()
     }
+    let navigate = useNavigate()
   return (
         <div>
-
+            <Navbarlogin/>
             <div className="container">
                 <div className="row">
                     <div className="col col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 col-xxl-12">
@@ -51,20 +55,7 @@ const DonarSignup = () => {
                             <div className="col col-12 col-sm-6 col-md-6 col-lg-6 col-xl-6 col-xxl-6"><br></br>
                                 <form action="" className="label_label">Full Name</form>
                                 <input type="text" className="form-control" placeholder='Enter your full name' name='fullname' value={signup.fullname} onChange={inputHandler} />
-                            </div>
-                            <div className="col col-12 col-sm-6 col-md-6 col-lg-6 col-xl-6 col-xxl-6"><br></br>
-                                <form action="" className="label_label">Date of birth</form>
-                                <input type="date" className="form-control" placeholder='select date' name='dateofbirth' value={signup.dateofbirth} onChange={inputHandler} />
-                            </div>
-                            <div className="col col-12 col-sm-6 col-md-6 col-lg-6 col-xl-6 col-xxl-6">
-                                <label htmlFor="" className="form-label">Gender</label>
-                                <select name="gender" id="" className="form-control" value={signup.gender} onChange={inputHandler}>
-                                    <option value="select">------------Select--------------</option>
-                                    <option value="Male">Male</option>
-                                    <option value="Female">Female</option>
-                                    <option value="Other">Other</option>
-                                </select>
-                            </div>
+                            </div>                           
                             <div className="col col-12 col-sm-6 col-md-6 col-lg-6 col-xl-6 col-xxl-6">
                                 <label htmlFor="" className="form-label">Blood Type</label>
                                 <select name="bloodtype" id="" className="form-control" value={signup.bloodtype} onChange={inputHandler}>
@@ -78,6 +69,19 @@ const DonarSignup = () => {
                                     <option value="O+">O+</option>
                                     <option value="O-">O-</option>
                                 </select>
+                            </div>
+                            <div className="col col-12 col-sm-6 col-md-6 col-lg-6 col-xl-6 col-xxl-6">
+                                <label htmlFor="" className="form-label">Gender</label>
+                                <select name="gender" id="" className="form-control" value={signup.gender} onChange={inputHandler}>
+                                    <option value="select">------------Select--------------</option>
+                                    <option value="Male">Male</option>
+                                    <option value="Female">Female</option>
+                                    <option value="Other">Other</option>
+                                </select>
+                            </div>
+                            <div className="col col-12 col-sm-6 col-md-6 col-lg-6 col-xl-6 col-xxl-6"><br></br>
+                                <form action="" className="label_label">Date of birth</form>
+                                <input type="date" className="form-control" placeholder='select date' name='dateofbirth' value={signup.dateofbirth} onChange={inputHandler} />
                             </div>
                             <div className="col col-12 col-sm-6 col-md-6 col-lg-6 col-xl-6 col-xxl-6"><br></br>
                                 <form action="" className="label_label">Phone number</form>
@@ -113,11 +117,11 @@ const DonarSignup = () => {
                             </div>
                             <div className="col col-12 col-sm-6 col-md-6 col-lg-6 col-xl-6 col-xxl-6"><br></br>
                                 <form action="" className="label_label">Password</form>
-                                <input type="password" className="form-control" name='password' value={signup.password} onChange={inputHandler} />
+                                <input type="password" className="form-control" name='password' placeholder='Enter strong password' value={signup.password} onChange={inputHandler} />
                             </div>
                             <div className="col col-12 col-sm-6 col-md-6 col-lg-6 col-xl-6 col-xxl-6"><br></br>
                                 <form action="" className="label_label">Confirm Password</form>
-                                <input type="password" className="form-control" name='confirm' value={signup.confirm} onChange={inputHandler} />
+                                <input type="password" className="form-control" name='confirm' placeholder='Re enter password' value={signup.confirm} onChange={inputHandler} />
                             </div>
                             <div className="col col-12 col-sm-6 col-md-6 col-lg-6 col-xl-6 col-xxl-6"><br></br>
                                 <button className="btn btn-success" onClick={readValue} >SignUp</button>

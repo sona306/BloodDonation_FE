@@ -1,5 +1,7 @@
 import axios from 'axios'
 import React, { useState } from 'react'
+import Navbarlogin from './Navbarlogin'
+import { useNavigate } from 'react-router-dom'
 
 const AdminSignup = () => {
     const[signup,setData]=useState(
@@ -24,15 +26,17 @@ const AdminSignup = () => {
                 console.log(response.data)
                 if (response.data.status=="success") {
                     alert("New signin created")
+                    navigate("/adminsignin")
                 } else {
                     alert("error!")
                 }
             }
         ).catch()
     }
+    let navigate = useNavigate()
   return (
     <div>
-
+<Navbarlogin/>
         <div className="container">
             <div className="row">
                 <div className="col col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 col-xxl-12">
@@ -59,15 +63,15 @@ const AdminSignup = () => {
                     </div>
                     <div className="col col-12 col-sm-6 col-md-6 col-lg-6 col-xl-6 col-xxl-6"><br></br>
                         <form action="" className="label_label">Hospital Name</form>
-                        <input type="text" className="form-control" name='hospitalname' value={signup.hospitalname} onChange={inputHandler}/>
+                        <input type="text" className="form-control" name='hospitalname'placeholder='Enter hospital name / organization name' value={signup.hospitalname} onChange={inputHandler}/>
                     </div>
                     <div className="col col-12 col-sm-6 col-md-6 col-lg-6 col-xl-6 col-xxl-6"><br></br>
                         <form action="" className="label_label">Password</form>
-                        <input type="password" className="form-control" name='password' value={signup.password} onChange={inputHandler}/>
+                        <input type="password" className="form-control" name='password' placeholder='Enter strong password' value={signup.password} onChange={inputHandler}/>
                     </div>
                     <div className="col col-12 col-sm-6 col-md-6 col-lg-6 col-xl-6 col-xxl-6"><br></br>
                         <form action="" className="label_label">Confirm Password</form>
-                        <input type="password" className="form-control" name='confirm' value={signup.confirm} onChange={inputHandler}/>
+                        <input type="password" className="form-control" name='confirm' placeholder='Re enter your password' value={signup.confirm} onChange={inputHandler}/>
                     </div>
                     <div className="col col-12 col-sm-6 col-md-6 col-lg-6 col-xl-6 col-xxl-6"><br></br>
                     <button className="btn btn-success" onClick={readValue} >SignUp</button>
