@@ -23,6 +23,7 @@ const AdminSignin = () => {
                     sessionStorage.setItem("token",response.data.token)
                     sessionStorage.setItem("userid",response.data.userID)
                     alert("Login Successfull")
+                    navigate('/admin')
                     } 
                 else 
                 {
@@ -32,7 +33,7 @@ const AdminSignin = () => {
         ).catch()  
 
     }
-
+    let navigate = useNavigate()
   return (
         <div>
             <Navbarlogin/>

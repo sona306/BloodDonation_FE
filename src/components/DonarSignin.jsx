@@ -1,6 +1,7 @@
 import axios from 'axios'
 import React, { useState } from 'react'
 import Navbarlogin from './Navbarlogin'
+import { useNavigate } from 'react-router-dom'
 
 const DonarSignin = () => {
     const [signin,setData]=useState(
@@ -20,8 +21,9 @@ const DonarSignin = () => {
                 if (response.data.status=="success") 
                     {
                     sessionStorage.setItem("token",response.data.token)
-                    sessionStorage.setItem("userid",response.data.userID)
+                    sessionStorage.setItem("userId",response.data.userId)
                     alert("Login Successfull")
+                    navigate("/donarRequest")
                     } 
                 else 
                 {
@@ -31,7 +33,7 @@ const DonarSignin = () => {
         ).catch()  
 
     }
-  
+    let navigate = useNavigate()
   return (
     <div>
         <Navbarlogin/>
