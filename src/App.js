@@ -15,6 +15,10 @@ import DonorReq from './components/DonorReq';
 import ApproveDonationReq from './components/ApproveDonationReq';
 import Viewdonationreq from './components/Viewdonationreq';
 import Admin from './components/Admin';
+import Consumer from './components/Consumer';
+import SearchDonar from './components/SearchDonar';
+import RequestBlood from './components/RequestBlood';
+import ApproveBloodReq from './components/ApproveBloodReq';
 
 
 function App() {
@@ -36,6 +40,10 @@ function App() {
         <Route path='/viewdonationreq' element={<Viewdonationreq/>}/>
         <Route path='/approvedonationreq' element={<ApproveDonationReq/>}/>
         <Route path='/admin' element={<Admin/>}/>
+        <Route path='/consumer' element={<Consumer/>}/>
+        <Route path='/searchdonar' element={<SearchDonar/>}/>
+        <Route path='/requestblood' element={<RequestBlood/>}/>
+        <Route path='/approvebloodreq' element={<ApproveBloodReq/>}/>
 
       </Routes>
     </BrowserRouter>

@@ -90,8 +90,8 @@ const DonorReq = () => {
                             </select>
                         </div>
                         <div className="col col-12 col-sm-6 col-md-6 col-lg-6 col-xl-6 col-xxl-6"><br />
-                            <label className="label_label">Amount</label>
-                            <input type="text" className="form-control" name='Amount' value={donationreq.Amount} onChange={inputHandler} />
+                            <label className="label_label">Amount (in units)</label>
+                            <input type="number" className="form-control" name='Amount' value={donationreq.Amount} onChange={inputHandler} />
                         </div>
 
                         <label>Donation History:</label>
