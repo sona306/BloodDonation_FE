@@ -19,7 +19,6 @@ const ConsumerSignup = () => {
             "lastdonationrecieveddate":'',
             "hospitalname":'',
             "emergencycontactnumber":'',
-            "urgencylevel":'',
             "password":'',
             "confirm":''
         }
@@ -117,16 +116,6 @@ const ConsumerSignup = () => {
                             <div className="col col-12 col-sm-6 col-md-6 col-lg-6 col-xl-6 col-xxl-6"><br></br>
                                 <form action="" className="label_label">Emergency contact number</form>
                                 <input type="text" className="form-control" placeholder='Enter emergency contact number' name='emergencycontactnumber' value={signup.emergencycontactnumber} onChange={inputHandler} />
-                            </div>
-                            <div className="col col-12 col-sm-6 col-md-6 col-lg-6 col-xl-6 col-xxl-6">
-                                <label htmlFor="" className="form-label">Urgency Level</label>
-                                <select name="gender" id="" className="form-control" value={signup.gender} onChange={inputHandler}>
-                                    <option value="select">------------Select--------------</option>
-                                    <option value="Immediate">Immediate</option>
-                                    <option value="Within 24 Hours">Within 24 Hours</option>
-                                    <option value="Within 3 Days">Within 3 Days</option>
-                                    <option value="Within a week">Within a week</option>
-                                </select>
                             </div>
                             <div className="col col-12 col-sm-6 col-md-6 col-lg-6 col-xl-6 col-xxl-6"><br></br>
                                 <form action="" className="label_label">Password</form>

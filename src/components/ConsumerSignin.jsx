@@ -1,6 +1,7 @@
 import axios from 'axios'
 import React, { useState } from 'react'
 import Navbarlogin from './Navbarlogin'
+import { useNavigate } from 'react-router-dom'
 
 const ConsumerSignin = () => {
     const [signin,setData]=useState(
@@ -22,6 +23,7 @@ const ConsumerSignin = () => {
                     sessionStorage.setItem("token",response.data.token)
                     sessionStorage.setItem("userid",response.data.userID)
                     alert("Login Successfull")
+                    navigate("/consumer")
                     } 
                 else 
                 {
@@ -31,7 +33,7 @@ const ConsumerSignin = () => {
         ).catch()  
 
     }
-  
+    let navigate = useNavigate()
   return (
 
 <div>
