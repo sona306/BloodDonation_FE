@@ -7,7 +7,7 @@ const RequestBlood = () => {
     const [requestedDate, setRequestedDate] = useState('');
     const [urgency, setUrgency] = useState('Normal');
     const [location, setLocation] = useState('');
-    const [bloodtype, setBloodtype] = useState('');
+    const [BloodGroup, setBloodGroup] = useState('');
     const [amount, setAmount] = useState('');
     const [message, setMessage] = useState(''); // State to store API response message
     const [error, setError] = useState(''); // State to store error messages
@@ -25,7 +25,7 @@ const RequestBlood = () => {
             requestedDate,
             urgency,
             location,
-            bloodtype,
+            BloodGroup,
             Amount: amount
         };
 
@@ -104,12 +104,12 @@ const RequestBlood = () => {
                     />
                 </div>
                 <div className="mb-3">
-                    <label htmlFor="bloodtype" className="form-label">Blood Type</label>
+                    <label htmlFor="BloodGroup" className="form-label">Blood Type</label>
                     <select
                         className="form-control"
-                        id="bloodtype"
-                        value={bloodtype}
-                        onChange={(e) => setBloodtype(e.target.value)}
+                        id="BloodGroup"
+                        value={BloodGroup}
+                        onChange={(e) => setBloodGroup(e.target.value)}
                         required
                     >
                         <option value="">Select Blood Type</option>

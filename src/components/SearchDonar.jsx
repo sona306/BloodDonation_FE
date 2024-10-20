@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 
 const SearchDonar = () => {
-    const [bloodType, setBloodType] = useState(''); // State to store blood type input
+    const [BloodGroup, setBloodGroup] = useState(''); // State to store blood type input
     const [donors, setDonors] = useState([]); // State to store fetched donors
     const [error, setError] = useState(''); // State to store error messages
 
@@ -18,7 +18,7 @@ const SearchDonar = () => {
                 headers: {
                     'Content-Type': 'application/json',
                 },
-                body: JSON.stringify({ bloodtype: bloodType }),
+                body: JSON.stringify({ BloodGroup: BloodGroup }),
             });
 
             // Check if the response is OK
@@ -47,15 +47,15 @@ const SearchDonar = () => {
             <h3 className="text-center">Search for Donors</h3>
             <form onSubmit={handleSubmit} className="mb-3">
                 <div className="mb-3">
-                    <label htmlFor="bloodType" className="form-label">Blood Type</label>
+                    <label htmlFor="BloodGroup" className="form-label">Blood Group</label>
                     <select
                         className="form-control"
-                        id="bloodType"
-                        value={bloodType}
-                        onChange={(e) => setBloodType(e.target.value)}
+                        id="BloodGroup"
+                        value={BloodGroup}
+                        onChange={(e) => setBloodGroup(e.target.value)}
                         required
                     >
-                        <option value="">Select blood type</option>
+                        <option value="">Select Blood Group</option>
                         <option value="A+">A+</option>
                         <option value="A-">A-</option>
                         <option value="B+">B+</option>
@@ -78,7 +78,7 @@ const SearchDonar = () => {
                         {donors.map((donor, index) => (
                             <li key={index} className="list-group-item">
                                 <strong>Name:</strong> {donor.fullname}<br />
-                                <strong>Blood Type:</strong> {donor.bloodtype}<br />
+                                <strong>Blood Group:</strong> {donor.BloodGroup}<br />
                                 <strong>Email:</strong> {donor.email}<br />
                                 <strong>Phone Number:</strong> {donor.phonenumber}<br />
                                 <strong>Last Donation Date:</strong> {donor.lastdonationdate}<br />

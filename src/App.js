@@ -19,6 +19,8 @@ import Consumer from './components/Consumer';
 import SearchDonar from './components/SearchDonar';
 import RequestBlood from './components/RequestBlood';
 import ApproveBloodReq from './components/ApproveBloodReq';
+import InventoryDonar from './components/InventoryDonar';
+import InventoryConsumer from './components/InventoryConsumer';
 
 
 function App() {
@@ -45,6 +47,8 @@ function App() {
         <Route path='/requestblood' element={<RequestBlood/>}/>
         <Route path='/approvebloodreq' element={<ApproveBloodReq/>}/>
 
+        <Route path='/inventorydonar' element={<InventoryDonar/>}/>
+        <Route path='/inventoryconsumer' element={<InventoryConsumer/>}/>
       </Routes>
     </BrowserRouter>
   );

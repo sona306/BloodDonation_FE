@@ -79,7 +79,7 @@ const ApproveBloodReq = () => {
                         {requests.map((request, index) => (
                             <li key={index} className="list-group-item">
                                 <strong>Full Name:</strong> {request.fullname}<br />
-                                <strong>Blood Type:</strong> {request.bloodtype}<br />
+                                <strong>Blood Type:</strong> {request.BloodGroup}<br />
                                 <strong>Requested Date:</strong> {new Date(request.requestedDate).toLocaleDateString()}<br />
                                 <strong>Location:</strong> {request.location}<br />
                                 <strong>Amount Required:</strong> {request.Amount} units<br />

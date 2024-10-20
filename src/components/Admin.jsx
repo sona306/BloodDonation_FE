@@ -19,7 +19,8 @@ const Admin = () => {
                     Easily manage all donor requests and approvals in this section. Ensure efficient processing and track the status of each request.
                   </p>
                   <a href="/approvedonationreq" class="btn btn-primary">Pending Donar Request</a><br></br><br></br>
-                  <a href="/viewdonationreq" class="btn btn-primary">View Status</a>
+                  <a href="/viewdonationreq" class="btn btn-primary">View Status</a><br></br><br></br>
+                  <a href="/inventorydonar" class="btn btn-primary">Manage Inventory</a>
                 </div>
               </div><br></br>
 
@@ -31,7 +32,7 @@ const Admin = () => {
                     Easily manage all consumer requests and approvals in this section
                   </p>
                   <a href="/approvebloodreq" class="btn btn-primary">New Blood Request</a><br></br><br></br>
-                  
+                  <a href="/inventoryconsumer" class="btn btn-primary">Manage Inventory</a><br></br><br></br>
                 </div>
               </div>
 
