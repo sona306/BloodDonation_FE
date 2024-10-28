@@ -82,7 +82,8 @@ const Admin = () => {
                                     <p className="card-text text-muted fs-5">
                                         See who have donated maximum amount of blood 
                                     </p>
-                                    <a href="/largestdonars" className="btn btn-primary">Check now</a><br /><br />
+                                    <a href="/largestdonars" className="btn btn-primary">Check largest donar</a><br /><br />
+                                    
                                 </div>
                             </div><br />
 

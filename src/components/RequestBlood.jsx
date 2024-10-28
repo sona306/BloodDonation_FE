@@ -62,6 +62,7 @@ const RequestBlood = () => {
                         type="text"
                         className="form-control"
                         id="fullname"
+                        placeholder='Enter fullname'
                         value={fullname}
                         onChange={(e) => setFullname(e.target.value)}
                         required
@@ -99,6 +100,7 @@ const RequestBlood = () => {
                         className="form-control"
                         id="location"
                         value={location}
+                        placeholder='Enter your location'
                         onChange={(e) => setLocation(e.target.value)}
                         required
                     />
@@ -130,6 +132,7 @@ const RequestBlood = () => {
                         className="form-control"
                         id="amount"
                         value={amount}
+                        placeholder='Enter amount in units'
                         onChange={(e) => setAmount(e.target.value)}
                         required
                     />

@@ -61,7 +61,7 @@ const DonorReq = () => {
                     <div className="row">
                     <div className="col col-12 col-sm-6 col-md-6 col-lg-6 col-xl-6 col-xxl-6"><br />
                             <label className="label_label">Full Name</label>
-                            <input type="text" className="form-control" name='fullname' value={donationreq.fullname} onChange={inputHandler} />
+                            <input type="text" className="form-control" name='fullname'placeholder='Enter fullname' value={donationreq.fullname} onChange={inputHandler} />
                         </div>
                         <div className="col col-12 col-sm-6 col-md-6 col-lg-6 col-xl-6 col-xxl-6"><br />
                             <label className="label_label">Requested Date</label>
@@ -69,11 +69,11 @@ const DonorReq = () => {
                         </div>
                         <div className="col col-12 col-sm-6 col-md-6 col-lg-6 col-xl-6 col-xxl-6"><br />
                             <label className="label_label">Confirm Availability</label>
-                            <input type="text" className="form-control" name='confirmavalibility' value={donationreq.confirmavalibility} onChange={inputHandler} />
+                            <input type="text" className="form-control" name='confirmavalibility' placeholder='are you avaliable to donate?' value={donationreq.confirmavalibility} onChange={inputHandler} />
                         </div>
                         <div className="col col-12 col-sm-6 col-md-6 col-lg-6 col-xl-6 col-xxl-6"><br />
                             <label className="label_label">Location</label>
-                            <input type="text" className="form-control" name='location' value={donationreq.location} onChange={inputHandler} />
+                            <input type="text" className="form-control" name='location' placeholder='Enter your location' value={donationreq.location} onChange={inputHandler} />
                         </div>
                         <div className="col col-12 col-sm-6 col-md-6 col-lg-6 col-xl-6 col-xxl-6"><br />
                             <label className="form-label">Blood Group</label>
@@ -91,7 +91,7 @@ const DonorReq = () => {
                         </div>
                         <div className="col col-12 col-sm-6 col-md-6 col-lg-6 col-xl-6 col-xxl-6"><br />
                             <label className="label_label">Amount (in units)</label>
-                            <input type="number" className="form-control" name='Amount' value={donationreq.Amount} onChange={inputHandler} />
+                            <input type="number" className="form-control" name='Amount' placeholder='Enter amount' value={donationreq.Amount} onChange={inputHandler} />
                         </div>
 
                         <label>Donation History:</label>
@@ -104,13 +104,13 @@ const DonorReq = () => {
                                 <input type="date" name="date" value={donationreq.date} onChange={inputHandler} required />
 
                                 <label>Hospital Name:</label>
-                                <input type="text" name="hospitalName" value={donationreq.hospitalName} onChange={inputHandler} required />
+                                <input type="text" name="hospitalName" placeholder='Enter hospital name of last donation' value={donationreq.hospitalName} onChange={inputHandler} required />
 
                                 <label>Quality of Donation:</label>
-                                <input type="text" name="quality" value={donationreq.quality} onChange={inputHandler} required />
+                                <input type="text" name="quality" value={donationreq.quality} placeholder='Enter quality' onChange={inputHandler} required />
                             </>
                         )}
-                    </div>
+                    </div><br></br>
                     <button type="submit" className="btn btn-primary">Submit</button> {/* Add a submit button */}
                 </form>
             </div>

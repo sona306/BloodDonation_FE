@@ -29,8 +29,8 @@ const Navbarlogin = () => {
                                 </a>
                                 <ul class="dropdown-menu">
                                     <li><a class="dropdown-item" href="/donarsignin">Donars</a></li>
-                                    <li><a class="dropdown-item" href="/consumersignin">Consumers action</a></li>
-                                    <li><a class="dropdown-item" href="/hospitalsignin">Hospital / Organizations</a></li>
+                                    <li><a class="dropdown-item" href="/consumersignin">Consumers</a></li>
+                                    {/* <li><a class="dropdown-item" href="/hospitalsignin">Hospital / Organizations</a></li> */}
                                     <li><a class="dropdown-item" href="/adminsignin">Admin</a></li>
                                 </ul>
                             </li>

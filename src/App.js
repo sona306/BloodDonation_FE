@@ -24,6 +24,7 @@ import InventoryConsumer from './components/InventoryConsumer';
 import BloodInventorylist from './components/BloodInventorylist';
 import Bloodalert from './components/Bloodalert';
 import Largestdonars from './components/Largestdonars';
+import PostAnnouncement from './components/PostAnnouncement ';
 
 
 function App() {
@@ -56,6 +57,7 @@ function App() {
         <Route path='/Bloodalert' element={<Bloodalert/>}/>
 
         <Route path='/largestdonars' element={<Largestdonars/>}/>
+        <Route path='/post' element={<PostAnnouncement/>}/>
       </Routes>
     </BrowserRouter>
   );
