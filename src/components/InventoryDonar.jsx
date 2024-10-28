@@ -68,7 +68,7 @@ const InventoryDonar = () => {
                         <option value="">Select Request ID</option>
                         {requests.map((request) => (
                             <option key={request._id} value={request._id}>
-                                {request._id} - {request.fullname} ({request.BloodGroup}) - {request.Amount} units ({request.location})
+                                {request._id} - {request.fullname} ({request.BloodGroup}) - {request.Amount} units - {request.location} - {request.requestedDate}
                             </option>
                         ))}
                     </select>

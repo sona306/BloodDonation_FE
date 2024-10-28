@@ -70,7 +70,7 @@ const ApproveDonationReq = () => {
                         <option value="">Select Request ID</option>
                         {requests.map((request) => (
                             <option key={request._id} value={request._id}>
-                                {request._id} - {request.fullname} {request.BloodGroup} {request.Amount} ({request.location})
+                                {request._id} - {request.fullname} - {request.BloodGroup} units - {request.Amount} - ({request.location}) - {request.requestedDate}
                             </option>
                         ))}
                     </select>
