@@ -1,72 +1,67 @@
 import axios from 'axios';
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
+import Navbarlogin from './Navbarlogin';
 
 const PostAnnouncement = () => {
-    const [title, setTitle] = useState('');
-    const [content, setContent] = useState('');
-    const [message, setMessage] = useState('');
-    const [error, setError] = useState('');
 
-    const handleSubmit = async (e) => {
-        e.preventDefault(); // Prevent default form submission
+    const [data, setData] = useState([])
 
-        // Clear previous messages
-        setMessage('');
-        setError('');
+    const [token,setToken] = useState(sessionStorage.getItem("token"))
+    const [adminId,setuserId] = useState({"adminId":sessionStorage.getItem("adminId")})
 
-        try {
-            const response = await axios.post('http://localhost:8080/admin/postAnnouncement', {
-                title,
-                content,
-            }, {
-                headers: {
-                    "token": sessionStorage.getItem("token"), // Assuming you store the token in sessionStorage
-                    "Content-Type": "application/json"
-                }
-            });
-
-            // Set success message
-            setMessage(response.data.message);
-            // Optionally reset the form
-            setTitle('');
-            setContent('');
-        } catch (err) {
-            console.error("Error creating post:", err);
-            setError("Failed to create post. Please try again.");
-        }
-    };
+    const fetchData = ()=>{
+        axios.post("http://localhost:8080/admin/viewmypost",adminId,{
+            headers:{"token":token,"Content-Type":"application/json"}
+        }).then(
+            (response)=>{
+                console.log(response.data)
+                setData(response.data)
+            }
+        ).catch(
+            (error)=>{
+                console.log(error)
+            }
+        )
+    }
+    useEffect( ()=>{fetchData()},[] )
 
     return (
-        <div className="container">
-            <h3>Create Announcement</h3>
-            <form onSubmit={handleSubmit}>
-                <div className="mb-3">
-                    <label htmlFor="title" className="form-label">Title</label>
-                    <input
-                        type="text"
-                        className="form-control"
-                        id="title"
-                        value={title}
-                        onChange={(e) => setTitle(e.target.value)}
-                        required
-                    />
+        <div>
+            <Navbarlogin/>
+            <div className="container">
+                <div className="row">
+                <h3><center>Donar Rewards</center></h3>
+                    <div className="col col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 col-xxl-12">
+                        <div className="row g-3">
+
+                            {data.map(
+                                (value,index)=>{
+                                    return <div className="col col-12 col-sm-12 col-md-12 col-xl-12 col-xxl-12">
+                                    <div class="card mb-3">
+                                        <div class="row g-0">
+                                        <div class="col-md-4">
+                                                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQaFq3BpHD4KRz4XJciJUBCjZcteCgJFFzq6PH-iVis1KOZjUHH3ZkJ_Fg&s" class="img-fluid rounded-start" alt="..."/>
+                                            </div>
+                                            <div class="col-md-8">
+                                                <div class="card-body">
+                                                    <h5 class="card-title">{value.Message}</h5>
+                                                    <p class="card-text"><small class="text-body-secondary">posted on {value.postedDate}</small></p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                }
+                            )
+
+                            }
+
+                        </div>
+                    </div>
                 </div>
-                <div className="mb-3">
-                    <label htmlFor="content" className="form-label">Content</label>
-                    <textarea
-                        className="form-control"
-                        id="content"
-                        value={content}
-                        onChange={(e) => setContent(e.target.value)}
-                        required
-                    ></textarea>
-                </div>
-                <button type="submit" className="btn btn-primary">Submit</button>
-            </form>
-            {message && <div className="alert alert-success mt-3">{message}</div>}
-            {error && <div className="alert alert-danger mt-3">{error}</div>}
+            </div>
         </div>
-    );
-};
+    )
+}
 
 export default PostAnnouncement;

@@ -18,22 +18,15 @@ const Navbarlogin = () => {
                                 <a class="nav-link active" aria-current="page" href="/">Home</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="#">Features</a>
+                            <li><a class="nav-link active" href="/donarsignin">Donors</a></li>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="#">Pricing</a>
+                            <li><a class="nav-link active" href="/consumersignin">Consumers</a></li>
                             </li>
-                            <li class="nav-item dropdown">
-                                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                    Logins
-                                </a>
-                                <ul class="dropdown-menu">
-                                    <li><a class="dropdown-item" href="/donarsignin">Donars</a></li>
-                                    <li><a class="dropdown-item" href="/consumersignin">Consumers</a></li>
-                                    {/* <li><a class="dropdown-item" href="/hospitalsignin">Hospital / Organizations</a></li> */}
-                                    <li><a class="dropdown-item" href="/adminsignin">Admin</a></li>
-                                </ul>
+                            <li class="nav-item">
+                            <li><a class="nav-link active" href="/adminsignin">Admin</a></li>
                             </li>
+                            
                         </ul>
                     </div>
                 </div>

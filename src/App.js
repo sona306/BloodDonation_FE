@@ -25,6 +25,7 @@ import BloodInventorylist from './components/BloodInventorylist';
 import Bloodalert from './components/Bloodalert';
 import Largestdonars from './components/Largestdonars';
 import PostAnnouncement from './components/PostAnnouncement ';
+import Createpost from './components/Createpost';
 
 
 function App() {
@@ -57,7 +58,8 @@ function App() {
         <Route path='/Bloodalert' element={<Bloodalert/>}/>
 
         <Route path='/largestdonars' element={<Largestdonars/>}/>
-        <Route path='/post' element={<PostAnnouncement/>}/>
+        <Route path='/create' element={<Createpost/>}/>
+        <Route path='/viwemypost' element={<PostAnnouncement/>}/>
       </Routes>
     </BrowserRouter>
   );

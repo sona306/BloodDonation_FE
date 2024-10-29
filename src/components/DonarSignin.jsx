@@ -38,7 +38,7 @@ const DonarSignin = () => {
     <div>
         <Navbarlogin/>
         <h3><center>Welcome to Life Saver app..</center></h3>
-        <h2><center>Donar Login</center></h2>
+        <h2><center>Donor Login</center></h2>
         <div className="container">
               <div className="row">
                   <div className="col col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 col-xxl-12">

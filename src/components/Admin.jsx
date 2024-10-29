@@ -83,7 +83,7 @@ const Admin = () => {
                                         See who have donated maximum amount of blood 
                                     </p>
                                     <a href="/largestdonars" className="btn btn-primary">Check largest donar</a><br /><br />
-                                    
+                                    <a href="/create" className="btn btn-primary">Add post</a><br /><br />
                                 </div>
                             </div><br />
 
