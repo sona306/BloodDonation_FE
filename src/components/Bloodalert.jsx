@@ -1,11 +1,13 @@
 import axios from 'axios';
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom'; // Import useNavigate for navigation
 
 const Bloodalert = () => {
     const [inventory, setInventory] = useState([]);
     const [alerts, setAlerts] = useState([]);
     const [loading, setLoading] = useState(true); // Set loading to true initially
     const [error, setError] = useState('');
+    const navigate = useNavigate(); // Initialize useNavigate
 
     // Function to check blood inventory
     const checkInventory = async () => {
@@ -40,10 +42,10 @@ const Bloodalert = () => {
     }, []); // Empty dependency array ensures this runs once when the component mounts
 
     return (
-        <div className="container">
-            <h3>Blood Inventory Alerts</h3>
+        <div className="container mt-4">
+            <h3 className="mb-4">Blood Inventory Alerts</h3>
 
-            {loading && <div>Loading...</div>}
+            {loading && <div className="alert alert-info">Loading...</div>}
             {error && <div className="alert alert-danger mt-3">{error}</div>}
             {alerts.length > 0 && (
                 <div className="alert alert-warning mt-3">
@@ -58,11 +60,11 @@ const Bloodalert = () => {
             {inventory.length > 0 ? (
                 <div className="mt-3">
                     <h5>Blood Inventory:</h5>
-                    <table className="table">
-                        <thead>
+                    <table className="table table-striped">
+                        <thead className="thead-dark">
                             <tr>
                                 <th>Blood Group</th>
-                                <th>Amount</th>
+                                <th>Amount (units)</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -78,9 +80,13 @@ const Bloodalert = () => {
             ) : (
                 <div className="mt-3">No blood inventory available.</div>
             )}
+
+            {/* Back to Admin Page button */}
+            <button className="btn btn-secondary mt-4" onClick={() => navigate('/admin')}>
+                Back to Admin Page
+            </button>
         </div>
     );
 };
 
-
-export default Bloodalert
+export default Bloodalert;

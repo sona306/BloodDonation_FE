@@ -1,5 +1,6 @@
 import axios from 'axios';
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom'; // Import useNavigate for navigation
 
 const InventoryDonar = () => {
     const [requests, setRequests] = useState([]);
@@ -7,6 +8,7 @@ const InventoryDonar = () => {
     const [amount, setAmount] = useState(1); // State for amount
     const [responseMessage, setResponseMessage] = useState("");
     const [totalInventory, setTotalInventory] = useState(null); // State to hold total inventory
+    const navigate = useNavigate(); // Initialize useNavigate
 
     // Fetch approved donation requests from the backend
     useEffect(() => {
@@ -54,9 +56,12 @@ const InventoryDonar = () => {
     };
 
     return (
-        <div className="container">
-            <h3>Update Blood Inventory</h3>
-            <form onSubmit={handleUpdate}>
+        <div className="container mt-4">
+            <h3 className="mb-4">Update Blood Inventory</h3>
+            <button className="btn btn-secondary mb-4" onClick={() => navigate('/admin')}>
+                Back to Admin Page
+            </button>
+            <form onSubmit={handleUpdate} className="border p-4 rounded shadow">
                 <div className="form-group">
                     <label>Select Approved Request:</label>
                     <select
@@ -100,4 +105,4 @@ const InventoryDonar = () => {
     );
 };
 
-export default InventoryDonar
+export default InventoryDonar;
