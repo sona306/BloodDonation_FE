@@ -1,11 +1,13 @@
 import axios from 'axios';
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom'; // Import useNavigate from react-router-dom
 
 const ApproveDonationReq = () => {
     const [requests, setRequests] = useState([]);
     const [selectedRequestId, setSelectedRequestId] = useState("");
     const [status, setStatus] = useState("");
     const [responseMessage, setResponseMessage] = useState("");
+    const navigate = useNavigate(); // Initialize useNavigate
 
     // Fetch donation requests from the backend
     useEffect(() => {
@@ -49,61 +51,54 @@ const ApproveDonationReq = () => {
     };
 
     return (
-        <div>
-
-<div className="container">
-        <div className="row">
-          <div className="col">
-            <div className="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 col-xxl-12">
-
-
-            <h3>Approve or Reject Donation Requests</h3><br></br>
-            <form onSubmit={handleApprove}>
-                <div className="form-group">
-                    <label>Select Request:</label>
-                    <select
-                        className="form-control"
-                        value={selectedRequestId}
-                        onChange={(e) => setSelectedRequestId(e.target.value)}
-                        required
-                    >
-                        <option value="">Select Request ID</option>
-                        {requests.map((request) => (
-                            <option key={request._id} value={request._id}>
-                                {request._id} - {request.fullname} {request.BloodGroup} {request.Amount} ({request.location})
-                            </option>
-                        ))}
-                    </select>
-                </div><br></br>
-                <div className="form-group">
-                    <label>Status:</label>
-                    <select
-                        className="form-control"
-                        value={status}
-                        onChange={(e) => setStatus(e.target.value)}
-                        required
-                    >
-                        <option value="">Select Status</option>
-                        <option value="Approved">Approved</option>
-                        <option value="Rejected">Rejected</option>
-                    </select>
-                </div><br></br>
-                <button type="submit" className="btn btn-primary">
-                    Submit
-                </button>
-            </form>
-            {responseMessage && (
-                <div className="alert alert-info mt-3">{responseMessage}</div>
-            )}
-
+        <div className="container my-5">
+            <h3 className="text-center text-primary mb-4">Approve or Reject Donation Requests</h3>
+            <div className="card shadow-sm">
+                <div className="card-body">
+                    <form onSubmit={handleApprove}>
+                        <div className="form-group mb-4">
+                            <label className="fw-bold">Select Request:</label>
+                            <select
+                                className="form-control"
+                                value={selectedRequestId}
+                                onChange={(e) => setSelectedRequestId(e.target.value)}
+                                required
+                            >
+                                <option value="">Select Request ID</option>
+                                {requests.map((request) => (
+                                    <option key={request._id} value={request._id}>
+                                        {request.fullname} ({request.BloodGroup}) - {request.Amount} units - 
+                                        AGE: {request.ageRequirement} - DATE: {request.requestedDate} - 
+                                        HEALTH: {request.generalHealthCondition}
+                                    </option>
+                                ))}
+                            </select>
+                        </div>
+                        <div className="form-group mb-4">
+                            <label className="fw-bold">Status:</label>
+                            <select
+                                className="form-control"
+                                value={status}
+                                onChange={(e) => setStatus(e.target.value)}
+                                required
+                            >
+                                <option value="">Select Status</option>
+                                <option value="Approved">Approved</option>
+                                <option value="Rejected">Rejected</option>
+                            </select>
+                        </div>
+                        <button type="submit" className="btn btn-primary">Submit</button>
+                    </form>
+                    {responseMessage && (
+                        <div className="alert alert-info mt-3">{responseMessage}</div>
+                    )}
+                    <button className="btn btn-secondary mt-3" onClick={() => navigate('/admin')}>
+                        Back to Admin Page
+                    </button>
+                </div>
             </div>
-          </div>
-        </div>
-      </div>
-            
         </div>
     );
 };
 
-
-export default ApproveDonationReq
+export default ApproveDonationReq;

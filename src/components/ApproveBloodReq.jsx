@@ -1,4 +1,5 @@
-import React, { useState } from 'react'
+import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom'; // Import useNavigate for navigation
 
 const ApproveBloodReq = () => {
     const [urgency, setUrgency] = useState(''); // State to store urgency input
@@ -6,6 +7,7 @@ const ApproveBloodReq = () => {
     const [error, setError] = useState(''); // State to store error messages
     const [loading, setLoading] = useState(false); // State to manage loading state
     const [submitted, setSubmitted] = useState(false); // State to track if form has been submitted
+    const navigate = useNavigate(); // Initialize useNavigate
 
     const handleSubmit = async (event) => {
         event.preventDefault(); // Prevent default form submission
@@ -46,10 +48,14 @@ const ApproveBloodReq = () => {
     };
 
     return (
-        <div className="container">
-            <h3 className="text-center">Fetch Blood Requests by Urgency</h3>
+        <div className="container mt-4">
+            <h3 className="text-center mb-4">Fetch Blood Requests by Urgency</h3>
 
-            <form onSubmit={handleSubmit} className="mb-3">
+            <button className="btn btn-secondary mb-3" onClick={() => navigate('/admin')}>
+                Back to Admin Page
+            </button>
+
+            <form onSubmit={handleSubmit} className="mb-3 border p-4 rounded shadow">
                 <div className="mb-3">
                     <label htmlFor="urgency" className="form-label">Urgency Level</label>
                     <select
@@ -79,7 +85,7 @@ const ApproveBloodReq = () => {
                         {requests.map((request, index) => (
                             <li key={index} className="list-group-item">
                                 <strong>Full Name:</strong> {request.fullname}<br />
-                                <strong>Blood Type:</strong> {request.bloodtype}<br />
+                                <strong>Blood Type:</strong> {request.BloodGroup}<br />
                                 <strong>Requested Date:</strong> {new Date(request.requestedDate).toLocaleDateString()}<br />
                                 <strong>Location:</strong> {request.location}<br />
                                 <strong>Amount Required:</strong> {request.Amount} units<br />
@@ -99,5 +105,4 @@ const ApproveBloodReq = () => {
     );
 };
 
-
-export default ApproveBloodReq
+export default ApproveBloodReq;

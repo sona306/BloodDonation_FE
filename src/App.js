@@ -19,6 +19,13 @@ import Consumer from './components/Consumer';
 import SearchDonar from './components/SearchDonar';
 import RequestBlood from './components/RequestBlood';
 import ApproveBloodReq from './components/ApproveBloodReq';
+import InventoryDonar from './components/InventoryDonar';
+import InventoryConsumer from './components/InventoryConsumer';
+import BloodInventorylist from './components/BloodInventorylist';
+import Bloodalert from './components/Bloodalert';
+import Largestdonars from './components/Largestdonars';
+import PostAnnouncement from './components/PostAnnouncement ';
+import Createpost from './components/Createpost';
 
 
 function App() {
@@ -45,6 +52,14 @@ function App() {
         <Route path='/requestblood' element={<RequestBlood/>}/>
         <Route path='/approvebloodreq' element={<ApproveBloodReq/>}/>
 
+        <Route path='/inventorydonar' element={<InventoryDonar/>}/>
+        <Route path='/inventoryconsumer' element={<InventoryConsumer/>}/>
+        <Route path='/BloodInventorylist' element={<BloodInventorylist/>}/>
+        <Route path='/Bloodalert' element={<Bloodalert/>}/>
+
+        <Route path='/largestdonars' element={<Largestdonars/>}/>
+        <Route path='/create' element={<Createpost/>}/>
+        <Route path='/viwemypost' element={<PostAnnouncement/>}/>
       </Routes>
     </BrowserRouter>
   );

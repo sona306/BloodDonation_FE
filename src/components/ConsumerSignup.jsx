@@ -10,7 +10,7 @@ const ConsumerSignup = () => {
             "fullname":'',
             "dateofbirth":'',
             "gender":'',
-            "bloodtype":'',
+            "BloodGroup":'',
             "phonenumber":'',
             "email":'',
             "homeaddress":'',
@@ -59,7 +59,7 @@ const ConsumerSignup = () => {
                             
                             <div className="col col-12 col-sm-6 col-md-6 col-lg-6 col-xl-6 col-xxl-6">
                                 <label htmlFor="" className="form-label">Blood Type</label>
-                                <select name="bloodtype" id="" className="form-control" value={signup.bloodtype} onChange={inputHandler}>
+                                <select name="BloodGroup" id="" className="form-control" value={signup.BloodGroup} onChange={inputHandler}>
                                     <option value="select">------------Select--------------</option>
                                     <option value="A+">A+</option>
                                     <option value="A-">A-</option>

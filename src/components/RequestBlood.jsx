@@ -1,13 +1,12 @@
-import React, { useState } from 'react'
+import React, { useState } from 'react';
 
 const RequestBlood = () => {
     // State variables to capture form inputs
-    
     const [fullname, setFullname] = useState('');
     const [requestedDate, setRequestedDate] = useState('');
     const [urgency, setUrgency] = useState('Normal');
     const [location, setLocation] = useState('');
-    const [bloodtype, setBloodtype] = useState('');
+    const [BloodGroup, setBloodGroup] = useState('');
     const [amount, setAmount] = useState('');
     const [message, setMessage] = useState(''); // State to store API response message
     const [error, setError] = useState(''); // State to store error messages
@@ -20,13 +19,12 @@ const RequestBlood = () => {
 
         // Create the request payload
         const payload = {
-            
             fullname,
             requestedDate,
             urgency,
             location,
-            bloodtype,
-            Amount: amount
+            BloodGroup,
+            Amount: amount,
         };
 
         try {
@@ -53,15 +51,16 @@ const RequestBlood = () => {
     };
 
     return (
-        <div className="container">
-            <h3 className="text-center">Post a Blood Request</h3>
-            <form onSubmit={handleSubmit} className="mb-3">
+        <div className="container my-5">
+            <h3 className="text-center text-primary mb-4">Post a Blood Request</h3>
+            <form onSubmit={handleSubmit} className="mb-4 p-4 border rounded shadow">
                 <div className="mb-3">
                     <label htmlFor="fullname" className="form-label">Full Name</label>
                     <input
                         type="text"
                         className="form-control"
                         id="fullname"
+                        placeholder="Enter fullname"
                         value={fullname}
                         onChange={(e) => setFullname(e.target.value)}
                         required
@@ -81,7 +80,7 @@ const RequestBlood = () => {
                 <div className="mb-3">
                     <label htmlFor="urgency" className="form-label">Urgency</label>
                     <select
-                        className="form-control"
+                        className="form-select"
                         id="urgency"
                         value={urgency}
                         onChange={(e) => setUrgency(e.target.value)}
@@ -99,17 +98,18 @@ const RequestBlood = () => {
                         className="form-control"
                         id="location"
                         value={location}
+                        placeholder="Enter your location"
                         onChange={(e) => setLocation(e.target.value)}
                         required
                     />
                 </div>
                 <div className="mb-3">
-                    <label htmlFor="bloodtype" className="form-label">Blood Type</label>
+                    <label htmlFor="BloodGroup" className="form-label">Blood Type</label>
                     <select
-                        className="form-control"
-                        id="bloodtype"
-                        value={bloodtype}
-                        onChange={(e) => setBloodtype(e.target.value)}
+                        className="form-select"
+                        id="BloodGroup"
+                        value={BloodGroup}
+                        onChange={(e) => setBloodGroup(e.target.value)}
                         required
                     >
                         <option value="">Select Blood Type</option>
@@ -130,11 +130,12 @@ const RequestBlood = () => {
                         className="form-control"
                         id="amount"
                         value={amount}
+                        placeholder="Enter amount in units"
                         onChange={(e) => setAmount(e.target.value)}
                         required
                     />
                 </div>
-                <button type="submit" className="btn btn-primary">Post Request</button>
+                <button type="submit" className="btn btn-primary w-100">Post Request</button>
             </form>
 
             {/* Display success or error messages */}
@@ -144,4 +145,4 @@ const RequestBlood = () => {
     );
 };
 
-export default RequestBlood
+export default RequestBlood;
