@@ -38,17 +38,17 @@ const Admin = () => {
                 </button>
             </div>
 
-            <div className="row">
+            <div className="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
                 {/* Donor Requests Management Card */}
-                <div className="col-md-6 mb-4">
-                    <div className="card shadow border-primary">
+                <div className="col mb-4">
+                    <div className="card shadow-sm border-primary h-100">
                         <h5 className="card-header bg-primary text-white">Donor Requests Management</h5>
-                        <div className="card-body">
+                        <div className="card-body d-flex flex-column">
                             <h3 className="card-title text-uppercase text-primary fw-bold">Manage Donor Requests</h3>
                             <p className="card-text text-muted fs-6">
                                 Easily manage all donor requests and approvals in this section. Ensure efficient processing and track the status of each request.
                             </p>
-                            <div className="d-flex flex-column">
+                            <div className="d-flex flex-column mt-auto">
                                 <a href="/approvedonationreq" className="btn btn-primary mb-2">Pending Donor Requests</a>
                                 <a href="/viewdonationreq" className="btn btn-primary mb-2">View Status</a>
                                 <a href="/inventorydonar" className="btn btn-primary">Manage Inventory</a>
@@ -58,15 +58,15 @@ const Admin = () => {
                 </div>
 
                 {/* Consumer Requests Management Card */}
-                <div className="col-md-6 mb-4">
-                    <div className="card shadow border-success">
+                <div className="col mb-4">
+                    <div className="card shadow-sm border-success h-100">
                         <h5 className="card-header bg-success text-white">Consumer Requests Management</h5>
-                        <div className="card-body">
+                        <div className="card-body d-flex flex-column">
                             <h3 className="card-title text-uppercase fw-bold">Manage Consumer Requests</h3>
                             <p className="card-text text-muted fs-6">
                                 Easily manage all consumer requests and approvals in this section.
                             </p>
-                            <div className="d-flex flex-column">
+                            <div className="d-flex flex-column mt-auto">
                                 <a href="/approvebloodreq" className="btn btn-primary mb-2">New Blood Requests</a>
                                 <a href="/inventoryconsumer" className="btn btn-primary">Manage Inventory</a>
                             </div>
@@ -74,16 +74,16 @@ const Admin = () => {
                     </div>
                 </div>
 
-                {/* Blood Inventory Management Card with New Border Color */}
-                <div className="col-md-6 mb-4">
-                    <div className="card shadow border-info"> {/* Changed to border-info for blue color */}
-                        <h5 className="card-header bg-info text-white">Blood Inventory</h5> {/* Header color changed to match border */}
-                        <div className="card-body">
+                {/* Blood Inventory Management Card */}
+                <div className="col mb-4">
+                    <div className="card shadow-sm border-info h-100">
+                        <h5 className="card-header bg-info text-white">Blood Inventory</h5>
+                        <div className="card-body d-flex flex-column">
                             <h3 className="card-title text-uppercase fw-bold">Manage Blood Inventory</h3>
                             <p className="card-text text-muted fs-6">
                                 Easily manage the Blood Inventory list.
                             </p>
-                            <div className="d-flex flex-column">
+                            <div className="d-flex flex-column mt-auto">
                                 <a href="/BloodInventorylist" className="btn btn-primary mb-2">Inventory List</a>
                                 <a 
                                     href="/Bloodalert" 
@@ -97,17 +97,18 @@ const Admin = () => {
                 </div>
 
                 {/* Largest Donors Management Card */}
-                <div className="col-md-6 mb-4">
-                    <div className="card shadow border-warning">
+                <div className="col mb-4">
+                    <div className="card shadow-sm border-warning h-100">
                         <h5 className="card-header bg-warning text-dark">Largest Donors</h5>
-                        <div className="card-body">
+                        <div className="card-body d-flex flex-column">
                             <h3 className="card-title text-uppercase fw-bold">Check Largest Donors</h3>
                             <p className="card-text text-muted fs-6">
                                 See who has donated the maximum amount of blood.
                             </p>
-                            <div className="d-flex flex-column">
+                            <div className="d-flex flex-column mt-auto">
                                 <a href="/largestdonars" className="btn btn-primary mb-2">Check Largest Donor</a>
-                                <a href="/create" className="btn btn-primary">Add Post</a>
+                                <a href="/create" className="btn btn-primary mb-2">Add Post</a>
+                                <a href="/viwemypostadmin" className="btn btn-primary">View Post</a>
                             </div>
                         </div>
                     </div>
