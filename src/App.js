@@ -27,6 +27,7 @@ import Largestdonars from './components/Largestdonars';
 import PostAnnouncement from './components/PostAnnouncement ';
 import Createpost from './components/Createpost';
 import ViewMyPosts from './components/ViewMyposts';
+import CreateCamp from './components/CreateCamp';
 
 
 function App() {
@@ -62,6 +63,8 @@ function App() {
         <Route path='/create' element={<Createpost/>}/>
         <Route path='/viwemypost' element={<PostAnnouncement/>}/>
         <Route path='/viwemypostadmin' element={<ViewMyPosts/>}/>
+
+        <Route path='/createcamp' element={<CreateCamp/>}/>
       </Routes>
     </BrowserRouter>
   );
