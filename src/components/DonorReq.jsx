@@ -137,18 +137,21 @@ const DonorReq = () => {
                             </select>
                         </div>
 
-                        <div className="col-md-6">
-                            <label className="form-label">Medical and Lifestyle History</label>
-                            <select name="medicalAndLifestyleHistory" className="form-select" value={donationreq.medicalAndLifestyleHistory} onChange={inputHandler} required>
-                                <option value="">Select Medical History</option>
-                                <option value="Yes, recent major surgeries">Yes, recent major surgeries</option>
-                                <option value="Yes, history of blood-transmissible diseases">Yes, history of blood-transmissible diseases</option>
-                                <option value="Yes, recent vaccinations">Yes, recent vaccinations</option>
-                                <option value="Yes, high-risk lifestyle behaviors">Yes, high-risk lifestyle behaviors</option>
-                                <option value="Yes, chronic conditions">Yes, chronic conditions</option>
-                                <option value="No Issues">No Issues</option>
-                            </select>
-                        </div>
+                        {/* Only display this section if donationHistory is checked */}
+                        {donationreq.donationHistory && (
+                            <div className="col-md-6">
+                                <label className="form-label">Medical and Lifestyle History</label>
+                                <select name="medicalAndLifestyleHistory" className="form-select" value={donationreq.medicalAndLifestyleHistory} onChange={inputHandler} required>
+                                    <option value="">Select Medical History</option>
+                                    <option value="Yes, recent major surgeries">Yes, recent major surgeries</option>
+                                    <option value="Yes, history of blood-transmissible diseases">Yes, history of blood-transmissible diseases</option>
+                                    <option value="Yes, recent vaccinations">Yes, recent vaccinations</option>
+                                    <option value="Yes, high-risk lifestyle behaviors">Yes, high-risk lifestyle behaviors</option>
+                                    <option value="Yes, chronic conditions">Yes, chronic conditions</option>
+                                    <option value="No Issues">No Issues</option>
+                                </select>
+                            </div>
+                        )}
 
                         <div className="col-md-6">
                             <label className="form-label">Medication Restrictions</label>

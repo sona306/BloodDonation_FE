@@ -28,6 +28,9 @@ import PostAnnouncement from './components/PostAnnouncement ';
 import Createpost from './components/Createpost';
 import ViewMyPosts from './components/ViewMyposts';
 import CreateCamp from './components/CreateCamp';
+import Donors from './components/Donors';
+import Donorscamp from './components/Donorscamp';
+import CampNotification from './components/CampNotification';
 
 
 function App() {
@@ -45,6 +48,7 @@ function App() {
         <Route path='/consumersignup' element={<ConsumerSignup/>}/>
         <Route path='/hospitalsignup' element={<HospitalSignup/>}/>
 
+        <Route path='/donors' element={<Donors/>}/>
         <Route path='/donarRequest' element={<DonorReq/>}/>
         <Route path='/viewdonationreq' element={<Viewdonationreq/>}/>
         <Route path='/approvedonationreq' element={<ApproveDonationReq/>}/>
@@ -65,6 +69,8 @@ function App() {
         <Route path='/viwemypostadmin' element={<ViewMyPosts/>}/>
 
         <Route path='/createcamp' element={<CreateCamp/>}/>
+        <Route path='/donorscamp' element={<Donorscamp/>}/>
+        <Route path='/campnotification' element={<CampNotification/>}/>
       </Routes>
     </BrowserRouter>
   );
