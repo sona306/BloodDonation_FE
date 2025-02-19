@@ -1,11 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
-import Bloodalert from './Bloodalert'; // Import the Bloodalert component
-import { useNavigate } from 'react-router-dom'; // Import useNavigate for navigation
+import { useNavigate } from 'react-router-dom';
 
 const Admin = () => {
     const [alerts, setAlerts] = useState([]);
-    const navigate = useNavigate(); // Initialize useNavigate
+    const navigate = useNavigate();
 
     // Function to check blood inventory alerts
     const checkInventoryAlerts = async () => {
@@ -25,7 +24,7 @@ const Admin = () => {
     // Use useEffect to automatically check for alerts on component mount
     useEffect(() => {
         checkInventoryAlerts();
-    }, []); // Empty dependency array ensures this runs once when the component mounts
+    }, []);
 
     return (
         <div className="container my-5">
@@ -41,17 +40,17 @@ const Admin = () => {
             <div className="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
                 {/* Donor Requests Management Card */}
                 <div className="col mb-4">
-                    <div className="card shadow-sm border-primary h-100">
-                        <h5 className="card-header bg-primary text-white">Donor Requests Management</h5>
+                    <div className="card shadow-lg border-primary h-100 rounded-3">
+                        <h5 className="card-header bg-primary text-white text-center">Donor Requests</h5>
                         <div className="card-body d-flex flex-column">
                             <h3 className="card-title text-uppercase text-primary fw-bold">Manage Donor Requests</h3>
                             <p className="card-text text-muted fs-6">
-                                Easily manage all donor requests and approvals in this section. Ensure efficient processing and track the status of each request.
+                                Approve or reject donor requests quickly and track each status.
                             </p>
                             <div className="d-flex flex-column mt-auto">
-                                <a href="/approvedonationreq" className="btn btn-primary mb-2">Pending Donor Requests</a>
-                                <a href="/viewdonationreq" className="btn btn-primary mb-2">View Status</a>
-                                <a href="/inventorydonar" className="btn btn-primary">Manage Inventory</a>
+                                <a href="/approvedonationreq" className="btn btn-outline-primary mb-2">Pending Requests</a>
+                                <a href="/viewdonationreq" className="btn btn-outline-primary mb-2">View Requests</a>
+                                <a href="/inventorydonar" className="btn btn-outline-primary">Manage Inventory</a>
                             </div>
                         </div>
                     </div>
@@ -59,16 +58,16 @@ const Admin = () => {
 
                 {/* Consumer Requests Management Card */}
                 <div className="col mb-4">
-                    <div className="card shadow-sm border-success h-100">
-                        <h5 className="card-header bg-success text-white">Consumer Requests Management</h5>
+                    <div className="card shadow-lg border-success h-100 rounded-3">
+                        <h5 className="card-header bg-success text-white text-center">Consumer Requests</h5>
                         <div className="card-body d-flex flex-column">
                             <h3 className="card-title text-uppercase fw-bold">Manage Consumer Requests</h3>
                             <p className="card-text text-muted fs-6">
-                                Easily manage all consumer requests and approvals in this section.
+                                Approve or reject consumer requests for blood with ease.
                             </p>
                             <div className="d-flex flex-column mt-auto">
-                                <a href="/approvebloodreq" className="btn btn-primary mb-2">New Blood Requests</a>
-                                <a href="/inventoryconsumer" className="btn btn-primary">Manage Inventory</a>
+                                <a href="/approvebloodreq" className="btn btn-outline-success mb-2">New Blood Requests</a>
+                                <a href="/inventoryconsumer" className="btn btn-outline-success">Manage Inventory</a>
                             </div>
                         </div>
                     </div>
@@ -76,20 +75,20 @@ const Admin = () => {
 
                 {/* Blood Inventory Management Card */}
                 <div className="col mb-4">
-                    <div className="card shadow-sm border-info h-100">
-                        <h5 className="card-header bg-info text-white">Blood Inventory</h5>
+                    <div className="card shadow-lg border-info h-100 rounded-3">
+                        <h5 className="card-header bg-info text-white text-center">Blood Inventory</h5>
                         <div className="card-body d-flex flex-column">
                             <h3 className="card-title text-uppercase fw-bold">Manage Blood Inventory</h3>
                             <p className="card-text text-muted fs-6">
-                                Easily manage the Blood Inventory list.
+                                Keep track of the available blood inventory and alerts for low supplies.
                             </p>
                             <div className="d-flex flex-column mt-auto">
-                                <a href="/BloodInventorylist" className="btn btn-primary mb-2">Inventory List</a>
+                                <a href="/BloodInventorylist" className="btn btn-outline-info mb-2">Inventory List</a>
                                 <a 
                                     href="/Bloodalert" 
-                                    className={`btn ${alerts.length > 0 ? 'btn-danger' : 'btn-primary'}`}
+                                    className={`btn ${alerts.length > 0 ? 'btn-danger' : 'btn-outline-info'}`}
                                 >
-                                    Alert {alerts.length > 0 && `(${alerts.length})`}
+                                    Alerts {alerts.length > 0 && `(${alerts.length})`}
                                 </a>
                             </div>
                         </div>
@@ -98,21 +97,38 @@ const Admin = () => {
 
                 {/* Largest Donors Management Card */}
                 <div className="col mb-4">
-                    <div className="card shadow-sm border-warning h-100">
-                        <h5 className="card-header bg-warning text-dark">Largest Donors</h5>
+                    <div className="card shadow-lg border-warning h-100 rounded-3">
+                        <h5 className="card-header bg-warning text-dark text-center">Largest Donors</h5>
                         <div className="card-body d-flex flex-column">
-                            <h3 className="card-title text-uppercase fw-bold">Check Largest Donors</h3>
+                            <h3 className="card-title text-uppercase fw-bold">Top Blood Donors</h3>
                             <p className="card-text text-muted fs-6">
-                                See who has donated the maximum amount of blood.
+                                View the donors who have contributed the most blood.
                             </p>
                             <div className="d-flex flex-column mt-auto">
-                                <a href="/largestdonars" className="btn btn-primary mb-2">Check Largest Donor</a>
-                                <a href="/create" className="btn btn-primary mb-2">Add Post</a>
-                                <a href="/viwemypostadmin" className="btn btn-primary">View Post</a>
+                                <a href="/largestdonars" className="btn btn-outline-warning mb-2">Check Top Donors</a>
+                                <a href="/create" className="btn btn-outline-warning mb-2">Add Post</a>
+                                <a href="/viwemypostadmin" className="btn btn-outline-warning">View Posts</a>
                             </div>
                         </div>
                     </div>
                 </div>
+
+                {/* Donation Camps Management Card */}
+                <div className="col mb-4">
+                    <div className="card shadow-lg border-success h-100 rounded-3">
+                        <h5 className="card-header bg-success text-white text-center">Donation Camps</h5>
+                        <div className="card-body d-flex flex-column">
+                            <h3 className="card-title text-uppercase fw-bold">Create Blood Donation Camps</h3>
+                            <p className="card-text text-muted fs-6">
+                                View and manage upcoming donation camps for blood donors.
+                            </p>
+                            <div className="d-flex flex-column mt-auto">
+                            <a href="/createcamp" className="btn btn-outline-success mb-2">Create Camp</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
             </div>
         </div>
     );

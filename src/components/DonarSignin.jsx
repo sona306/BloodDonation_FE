@@ -22,7 +22,7 @@ const DonarSignin = () => {
                     sessionStorage.setItem("token", response.data.token);
                     sessionStorage.setItem("userId", response.data.userId);
                     alert("Login Successful");
-                    navigate("/donarRequest");
+                    navigate("/donors");
                 } else {
                     alert(response.data.status);
                 }
