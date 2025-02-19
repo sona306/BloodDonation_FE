@@ -54,7 +54,7 @@ const CreateCamp = () => {
             // Handle response from the backend API
             if (response.data.status === "Success") {
                 alert("Camp created successfully and notifications sent to donors!");
-                navigate('/home');
+                navigate('/admin');
             } else {
                 setMessage(response.data.message || "Something went wrong.");
             }

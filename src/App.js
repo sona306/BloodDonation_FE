@@ -31,6 +31,7 @@ import CreateCamp from './components/CreateCamp';
 import Donors from './components/Donors';
 import Donorscamp from './components/Donorscamp';
 import CampNotification from './components/CampNotification';
+import DonorEducation from './components/DonorEducation';
 
 
 function App() {
@@ -71,6 +72,7 @@ function App() {
         <Route path='/createcamp' element={<CreateCamp/>}/>
         <Route path='/donorscamp' element={<Donorscamp/>}/>
         <Route path='/campnotification' element={<CampNotification/>}/>
+        <Route path='/donoreducation' element={<DonorEducation/>}/>
       </Routes>
     </BrowserRouter>
   );

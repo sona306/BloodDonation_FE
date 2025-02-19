@@ -43,6 +43,9 @@ const Donors = () => {
                   <a href="/donorscamp" className="btn btn-primary btn-lg">
                     All Camps
                   </a>
+                  <a href="/donoreducation" className="btn btn-primary btn-lg">
+                    Donor Education
+                  </a>
                   <a href="/campnotification" className={`btn btn-lg ${unseenNotifications.length > 0 ? 'btn-danger' : 'btn-primary'}`}>
                     {unseenNotifications.length > 0 ? `New Camps Notification (${unseenNotifications.length})` : 'New Camps Notification'}
                   </a>
