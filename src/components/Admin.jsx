@@ -159,6 +159,9 @@ const Admin = () => {
                             <div className="d-flex flex-column mt-auto">
                                 <a href="/donordetails" className="btn btn-outline-primary mb-2">Donor Details</a>
                             </div>
+                            <div className="d-flex flex-column mt-auto">
+                                <a href="/emailsend" className="btn btn-outline-primary mb-2">Email Reminder</a>
+                            </div>
                         </div>
                     </div>
                 </div>

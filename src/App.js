@@ -37,6 +37,7 @@ import AdminHospitalReq from './components/AdminHospitalReq';
 import CampRegister from './components/CampRegister';
 import AdminCampRegi from './components/AdminCampRegi';
 import DonorDetails from './components/DonorDetails';
+import SendReminder from './components/SenderReminder';
 
 
 function App() {
@@ -84,6 +85,7 @@ function App() {
         <Route path='/admincampregi' element={<AdminCampRegi/>}/>
 
         <Route path='/donordetails' element={<DonorDetails/>}/>
+        <Route path='/emailsend' element={<SendReminder/>}/>
       </Routes>
     </BrowserRouter>
   );
