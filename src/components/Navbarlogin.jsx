@@ -44,13 +44,22 @@ const Navbarlogin = () => {
                                 </a>
                             </li>
                             <li className="nav-item">
+                                <a className="nav-link active" href="/hospitalsignin" style={{
+                                    color: '#FFFFFF',
+                                    fontFamily: 'Montserrat, sans-serif'
+                                }}>
+                                    <i className="bi bi-shield-lock"></i> Hospitals
+                                </a>
+                            </li>
+                            <li className="nav-item">
                                 <a className="nav-link active" href="/adminsignin" style={{
                                     color: '#FFFFFF',
                                     fontFamily: 'Montserrat, sans-serif'
                                 }}>
-                                    <i className="bi bi-shield-lock"></i> Hospital
+                                    <i className="bi bi-shield-lock"></i> Admin
                                 </a>
                             </li>
+                            
                         </ul>
                     </div>
                 </div>

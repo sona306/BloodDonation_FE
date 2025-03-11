@@ -129,6 +129,21 @@ const Admin = () => {
                     </div>
                 </div>
 
+                <div className="col mb-4">
+                    <div className="card shadow-lg border-warning h-100 rounded-3">
+                        <h5 className="card-header bg-warning text-white text-center">Hospital</h5>
+                        <div className="card-body d-flex flex-column">
+                            <h3 className="card-title text-uppercase fw-bold">Hospital Request for blood</h3>
+                            <p className="card-text text-muted fs-6">
+                                View and manage hospital emergency request.
+                            </p>
+                            <div className="d-flex flex-column mt-auto">
+                            <a href="/hospitalreq" className="btn btn-outline-warning mb-2">New Request</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
             </div>
         </div>
     );
