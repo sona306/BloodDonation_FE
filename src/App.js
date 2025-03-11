@@ -34,6 +34,9 @@ import CampNotification from './components/CampNotification';
 import DonorEducation from './components/DonorEducation';
 import HospitalEmergencyRequest from './components/HospitalEmergencyRequest';
 import AdminHospitalReq from './components/AdminHospitalReq';
+import CampRegister from './components/CampRegister';
+import AdminCampRegi from './components/AdminCampRegi';
+import DonorDetails from './components/DonorDetails';
 
 
 function App() {
@@ -77,6 +80,10 @@ function App() {
         <Route path='/donoreducation' element={<DonorEducation/>}/>
         <Route path='/hospitalemergency' element={<HospitalEmergencyRequest/>}/>
         <Route path='/hospitalreq' element={<AdminHospitalReq/>}/>
+        <Route path='/campregister' element={<CampRegister/>}/>
+        <Route path='/admincampregi' element={<AdminCampRegi/>}/>
+
+        <Route path='/donordetails' element={<DonorDetails/>}/>
       </Routes>
     </BrowserRouter>
   );

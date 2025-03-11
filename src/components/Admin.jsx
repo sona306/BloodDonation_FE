@@ -21,19 +21,20 @@ const Admin = () => {
         }
     };
 
-    // Use useEffect to automatically check for alerts on component mount
     useEffect(() => {
         checkInventoryAlerts();
     }, []);
 
     return (
         <div className="container my-5">
-            <h2 className="text-center text-black mb-4">Admin Dashboard</h2>
 
-            {/* Back to Home Button */}
-            <div className="text-center mb-4">
-                <button className="btn btn-secondary" onClick={() => navigate('/')}>
-                    Back to Home
+            {/* Back to Home Button at Right Top */}
+            <div className="d-flex justify-content-end mb-3">
+                <button
+                    className="btn btn-secondary"
+                    onClick={() => navigate('/')}
+                >
+                    ⬅️ Back to Home
                 </button>
             </div>
 
@@ -84,8 +85,8 @@ const Admin = () => {
                             </p>
                             <div className="d-flex flex-column mt-auto">
                                 <a href="/BloodInventorylist" className="btn btn-outline-info mb-2">Inventory List</a>
-                                <a 
-                                    href="/Bloodalert" 
+                                <a
+                                    href="/Bloodalert"
                                     className={`btn ${alerts.length > 0 ? 'btn-danger' : 'btn-outline-info'}`}
                                 >
                                     Alerts {alerts.length > 0 && `(${alerts.length})`}
@@ -123,22 +124,40 @@ const Admin = () => {
                                 View and manage upcoming donation camps for blood donors.
                             </p>
                             <div className="d-flex flex-column mt-auto">
-                            <a href="/createcamp" className="btn btn-outline-success mb-2">Create Camp</a>
+                                <a href="/createcamp" className="btn btn-outline-success mb-2">Create Camp</a>
+                                <a href="/admincampregi" className="btn btn-outline-success mb-2">View Registrations</a>
                             </div>
                         </div>
                     </div>
                 </div>
 
+                {/* Hospital Requests Management Card */}
                 <div className="col mb-4">
                     <div className="card shadow-lg border-warning h-100 rounded-3">
                         <h5 className="card-header bg-warning text-white text-center">Hospital</h5>
                         <div className="card-body d-flex flex-column">
-                            <h3 className="card-title text-uppercase fw-bold">Hospital Request for blood</h3>
+                            <h3 className="card-title text-uppercase fw-bold">Hospital Request for Blood</h3>
                             <p className="card-text text-muted fs-6">
-                                View and manage hospital emergency request.
+                                View and manage hospital emergency requests.
                             </p>
                             <div className="d-flex flex-column mt-auto">
-                            <a href="/hospitalreq" className="btn btn-outline-warning mb-2">New Request</a>
+                                <a href="/hospitalreq" className="btn btn-outline-warning mb-2">New Request</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                {/* Donor reminder */}
+                <div className="col mb-4">
+                    <div className="card shadow-lg border-primary h-100 rounded-3">
+                        <h5 className="card-header bg-primary text-white text-center">Donor Reminder</h5>
+                        <div className="card-body d-flex flex-column">
+                            <h3 className="card-title text-uppercase fw-bold">Donor details and reminder set</h3>
+                            <p className="card-text text-muted fs-6">
+                                View and manage reminder.
+                            </p>
+                            <div className="d-flex flex-column mt-auto">
+                                <a href="/donordetails" className="btn btn-outline-primary mb-2">Donor Details</a>
                             </div>
                         </div>
                     </div>

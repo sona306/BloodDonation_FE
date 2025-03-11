@@ -7,6 +7,7 @@ const DonorReq = () => {
     const [donationreq, setData] = useState({
         "userId": sessionStorage.getItem("userId"),
         "fullname": '',
+        "email": '',
         "requestedDate": '',
         "location": '',
         "BloodGroup": '',
@@ -69,6 +70,10 @@ const DonorReq = () => {
                         <div className="col-md-6">
                             <label className="form-label">Full Name</label>
                             <input type="text" className="form-control" name='fullname' placeholder='Enter full name' value={donationreq.fullname} onChange={inputHandler} required />
+                        </div>
+                        <div className="col-md-6">
+                            <label className="form-label">Email</label>
+                            <input type="text" className="form-control" name='email' placeholder='Enter email' value={donationreq.email} onChange={inputHandler} required />
                         </div>
                         <div className="col-md-6">
                             <label className="form-label">Requested Date</label>
@@ -174,10 +179,31 @@ const DonorReq = () => {
                             </select>
                         </div>
 
-                        <div className="col-md-6">
-                            <label className="form-label">Donation History</label>
-                            <input type="checkbox" name='donationHistory' checked={donationreq.donationHistory} onChange={inputHandler} /> <span>Have you donated before?</span>
+                        {/* ➡️ Donation History Section */}
+                        <h5 className="text-primary mt-4 mb-3">Donation History</h5>
+                        <div className="form-check">
+                            <input type="checkbox" className="form-check-input" name="donationHistory" checked={donationreq.donationHistory} onChange={inputHandler} />
+                            <label className="form-check-label">Have you donated before?</label>
                         </div>
+
+                        {donationreq.donationHistory && (
+                            <div className="row g-4 mt-2">
+                                <div className="col-md-6">
+                                    <label className="form-label">Date of Previous Donation</label>
+                                    <input type="date" className="form-control" name='date' value={donationreq.date} onChange={inputHandler} required />
+                                </div>
+                                <div className="col-md-6">
+                                    <label className="form-label">Hospital Name</label>
+                                    <input type="text" className="form-control" name='hospitalName' placeholder='Enter hospital name' value={donationreq.hospitalName} onChange={inputHandler} required />
+                                </div>
+                                <div className="col-md-6">
+                                    <label className="form-label">Quality</label>
+                                    <input type="text" className="form-control" name='quality' placeholder='Enter quality' value={donationreq.quality} onChange={inputHandler} required />
+                                </div>
+                            </div>
+                        )}
+
+
                     </div>
                     <div className="text-center mt-4">
                         <button type="submit" className="btn btn-primary">Submit Request</button>
@@ -188,4 +214,4 @@ const DonorReq = () => {
     );
 };
 
-export default DonorReq;
+export default DonorReq; 
