@@ -12,7 +12,7 @@ const Navbarlogin = () => {
                         fontFamily: 'Montserrat, sans-serif',
                         fontSize: '1.5rem'
                     }}>
-                        LifeSaver: A Comprehensive Blood Donation and Blood Bank Finder Platform
+                        LifeLine : Uniting Blood Donors and Blood Banks
                     </a>
                     <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
                         <span className="navbar-toggler-icon"></span>

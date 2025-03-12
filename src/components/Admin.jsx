@@ -162,6 +162,10 @@ const Admin = () => {
                             <div className="d-flex flex-column mt-auto">
                                 <a href="/emailsend" className="btn btn-outline-primary mb-2">Email Reminder</a>
                             </div>
+                            <div className="d-flex flex-column mt-auto">
+                                <a href="/emergencyreqmail" className="btn btn-outline-primary mb-2">Email Emergency</a>
+                            </div>
+            
                         </div>
                     </div>
                 </div>
