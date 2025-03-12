@@ -1,13 +1,13 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
-import { useNavigate } from 'react-router-dom'; // Import useNavigate from react-router-dom
+import { useNavigate } from 'react-router-dom';
 
 const ApproveDonationReq = () => {
     const [requests, setRequests] = useState([]);
-    const [selectedRequestId, setSelectedRequestId] = useState("");
-    const [status, setStatus] = useState("");
-    const [responseMessage, setResponseMessage] = useState("");
-    const navigate = useNavigate(); // Initialize useNavigate
+    const [selectedRequestId, setSelectedRequestId] = useState('');
+    const [status, setStatus] = useState('');
+    const [responseMessage, setResponseMessage] = useState('');
+    const navigate = useNavigate();
 
     // Fetch donation requests from the backend
     useEffect(() => {
@@ -18,9 +18,10 @@ const ApproveDonationReq = () => {
                         "token": sessionStorage.getItem("token"),
                     }
                 });
-                setRequests(response.data.requests); // Assume backend returns an array of pending requests
+                setRequests(response.data.requests);
             } catch (error) {
                 console.error("Error fetching requests:", error);
+                setResponseMessage('Failed to fetch requests. Please try again.');
             }
         };
 
@@ -33,8 +34,8 @@ const ApproveDonationReq = () => {
             const response = await axios.post(
                 "http://localhost:8080/admin/approveDonationRequest",
                 {
-                    requestId: selectedRequestId, // Automatically filled when selecting a request
-                    status: status // 'Approved' or 'Rejected'
+                    requestId: selectedRequestId,
+                    status
                 },
                 {
                     headers: {
@@ -44,6 +45,11 @@ const ApproveDonationReq = () => {
                 }
             );
             setResponseMessage(response.data.message);
+
+            // Refresh requests after approval/rejection
+            setRequests((prev) => prev.filter((req) => req._id !== selectedRequestId));
+            setSelectedRequestId('');
+            setStatus('');
         } catch (error) {
             console.error("Error approving/rejecting donation request:", error);
             setResponseMessage(error.response?.data?.message || "An error occurred.");
@@ -51,50 +57,63 @@ const ApproveDonationReq = () => {
     };
 
     return (
-        <div className="container my-5">
-            <h3 className="text-center text-primary mb-4">Approve or Reject Donation Requests</h3>
-            <div className="card shadow-sm">
+        <div className="container py-5">
+            <h3 className="text-center text-primary mb-4">🚑 Approve or Reject Donation Requests</h3>
+            <div className="card shadow-lg border-0" style={{ borderRadius: '12px' }}>
                 <div className="card-body">
                     <form onSubmit={handleApprove}>
-                        <div className="form-group mb-4">
-                            <label className="fw-bold">Select Request:</label>
+                        {/* Request Dropdown */}
+                        <div className="mb-4">
+                            <label className="form-label fw-bold">Select Request:</label>
                             <select
-                                className="form-control"
+                                className="form-select"
                                 value={selectedRequestId}
                                 onChange={(e) => setSelectedRequestId(e.target.value)}
                                 required
                             >
-                                <option value="">Select Request ID</option>
+                                <option value="">-- Select Request --</option>
                                 {requests.map((request) => (
                                     <option key={request._id} value={request._id}>
-                                        {request.fullname} ({request.BloodGroup}) - {request.Amount} units - 
-                                        AGE: {request.ageRequirement} - DATE: {request.requestedDate} - 
-                                        HEALTH: {request.generalHealthCondition}
+                                        {`${request.fullname} (${request.BloodGroup}) - ${request.Amount} units - Age: ${request.ageRequirement} - Date: ${new Date(request.requestedDate).toLocaleDateString()} - Health: ${request.generalHealthCondition}`}
                                     </option>
                                 ))}
                             </select>
                         </div>
-                        <div className="form-group mb-4">
-                            <label className="fw-bold">Status:</label>
+
+                        {/* Status Dropdown */}
+                        <div className="mb-4">
+                            <label className="form-label fw-bold">Status:</label>
                             <select
-                                className="form-control"
+                                className="form-select"
                                 value={status}
                                 onChange={(e) => setStatus(e.target.value)}
                                 required
                             >
-                                <option value="">Select Status</option>
-                                <option value="Approved">Approved</option>
-                                <option value="Rejected">Rejected</option>
+                                <option value="">-- Select Status --</option>
+                                <option value="Approved">✅ Approved</option>
+                                <option value="Rejected">❌ Rejected</option>
                             </select>
                         </div>
-                        <button type="submit" className="btn btn-primary">Submit</button>
+
+                        {/* Action Buttons */}
+                        <div className="d-flex gap-3">
+                            <button type="submit" className="btn btn-success px-4">Submit</button>
+                            <button
+                                type="button"
+                                className="btn btn-secondary px-4"
+                                onClick={() => navigate('/admin')}
+                            >
+                                Back to Admin Page
+                            </button>
+                        </div>
                     </form>
+
+                    {/* Response Message */}
                     {responseMessage && (
-                        <div className="alert alert-info mt-3">{responseMessage}</div>
+                        <div className={`alert ${responseMessage.includes('error') ? 'alert-danger' : 'alert-success'} mt-4`}>
+                            {responseMessage}
+                        </div>
                     )}
-                    <button className="btn btn-secondary mt-3" onClick={() => navigate('/admin')}>
-                        Back to Admin Page
-                    </button>
                 </div>
             </div>
         </div>
