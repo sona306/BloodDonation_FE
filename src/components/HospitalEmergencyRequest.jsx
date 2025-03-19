@@ -55,7 +55,7 @@ const HospitalEmergencyRequest = () => {
 
     return (
         <div className="min-vh-100 d-flex flex-column align-items-center justify-content-center" style={{ backgroundColor: '#FFF8E1', fontFamily: 'Roboto, sans-serif' }}>
-            <Navbarlogin />
+         
             <div className="container my-auto">
                 <h3 className="text-center text-danger">🚨 Emergency Blood Request</h3>
                 <h5 className="text-center text-secondary mb-4">Hospital Request Form</h5>
